@@ -18,7 +18,17 @@ const MOCK_FILTER = {
 
 export const useAppFormContext = () => useFormContext<FormValues>();
 
-export const useAppForm = () => useForm<FormValues>(MOCK_FILTER);
+export const useAppForm = () =>
+  useForm<FormValues>({
+    defaultValues: {
+      categoryFilter: "",
+      district: null,
+      usableArea: ["", ""],
+      flatFilter: {
+        type: [],
+      },
+    },
+  });
 
 export const getOptionsFromEnum = (
   enumeration: Record<string, string | number>

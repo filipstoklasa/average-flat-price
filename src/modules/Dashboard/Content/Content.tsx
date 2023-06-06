@@ -8,60 +8,46 @@ import { priceFormatter } from "./utils";
 import useGetSearchData from "../hooks/useGetSearchData";
 import Recap from "./Recap";
 import SearchIcon from "@mui/icons-material/Search";
+import { PropsWithChildren } from "react";
+
+const StateWrapper = ({ children }: PropsWithChildren) => (
+  <Box display="flex" height="100%" justifyContent="center" alignItems="center">
+    {children}
+  </Box>
+);
 
 const Content = () => {
   const { data, isInitialLoading, isRefetching, error } = useGetSearchData();
 
   if (isInitialLoading) {
     return (
-      <Box
-        display="flex"
-        height="100%"
-        justifyContent="center"
-        alignItems="center"
-      >
+      <StateWrapper>
         <CircularProgress />
-      </Box>
+      </StateWrapper>
     );
   }
 
   if (error) {
     return (
-      <Box
-        display="flex"
-        height="100%"
-        justifyContent="center"
-        alignItems="center"
-      >
+      <StateWrapper>
         <Alert severity="error">No results</Alert>
-      </Box>
+      </StateWrapper>
     );
   }
 
   if (!data) {
     return (
-      <Box
-        display="flex"
-        height="100%"
-        justifyContent="center"
-        alignItems="center"
-      >
-        <Box display="inline-flex">
-          <Typography color="GrayText">
-            Nothing to display. Use Filter{" "}
-          </Typography>
-          <Box px={1}>
-            <SearchIcon color="disabled" />
-          </Box>
-          <Typography color="GrayText"> to search for estates</Typography>
-        </Box>
-      </Box>
+      <StateWrapper>
+        <Typography color="GrayText" py={2}>
+          Nothing to display. Use Filter to search for estates
+        </Typography>
+      </StateWrapper>
     );
   }
 
   return (
     <Fade in>
-      <Box py={{ xs: 2, md: 4 }}>
+      <Box py={4}>
         {isRefetching && <LinearProgress />}
         <Box my={2}>
           <Paper>
