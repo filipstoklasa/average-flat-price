@@ -10,7 +10,7 @@ const ThemeToggle = () => {
   const { setTheme } = useToggleTheme();
 
   return (
-    <IconButton disabled onClick={setTheme} color="inherit">
+    <IconButton onClick={setTheme} color="inherit">
       {theme.palette.mode === Theme.dark ? (
         <Brightness7Icon />
       ) : (

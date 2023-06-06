@@ -63,9 +63,7 @@ export const ToggleThemeContext = createContext({
 export const ToggleThemeProvider = ({ children }: PropsWithChildren) => {
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
   const [theme, setTheme] = useState(
-    // prefersDarkMode ?
-    Theme.dark
-    //  : Theme.light
+    prefersDarkMode ? Theme.dark : Theme.light
   );
 
   const currentTheme = useMemo(() => createModeTheme(theme), [theme]);
