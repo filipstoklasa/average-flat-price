@@ -8,6 +8,7 @@ import type { Form } from "../models/Form";
 type Option = {
   label: string;
   value: string | ReadonlyArray<string> | number | undefined;
+  disabled?: boolean;
 };
 
 interface FormSelectProps<T extends FieldValues> extends Form<T> {
@@ -29,8 +30,8 @@ const FormSelect = <T extends FieldValues>({
     <FormControl>
       <InputLabel>{label}</InputLabel>
       <Select {...field} label={label} multiple={multiple}>
-        {options.map(({ label, value }) => (
-          <MenuItem key={label} value={value}>
+        {options.map(({ label, value, disabled }) => (
+          <MenuItem disabled={disabled} key={label} value={value}>
             {label}
           </MenuItem>
         ))}

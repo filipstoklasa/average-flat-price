@@ -20,6 +20,13 @@ const createModeTheme = (mode: Theme) =>
     palette: { mode },
     typography: {
       fontFamily: ["Roboto", '"Helvetica Neue"'].join(","),
+      h1: {
+        fontSize: "1.2rem",
+        fontWeight: "400",
+        "@media (min-width:600px)": {
+          fontSize: "2.5rem",
+        },
+      },
     },
     components: {
       MuiCssBaseline: {

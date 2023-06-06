@@ -12,7 +12,7 @@ const Dashboard = () => {
     <FormProvider {...form}>
       <Box display="flex" p={2} flexDirection={{ xs: "column", md: "row" }}>
         <Filters />
-        <Box flex={1} px={4} overflow="hidden">
+        <Box flex={1} px={{ md: 4 }} overflow="hidden">
           <Content />
         </Box>
       </Box>

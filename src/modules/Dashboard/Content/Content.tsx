@@ -61,11 +61,11 @@ const Content = () => {
 
   return (
     <Fade in>
-      <Box py={4}>
+      <Box py={{ xs: 2, md: 4 }}>
         {isRefetching && <LinearProgress />}
         <Box my={2}>
           <Paper>
-            <Typography p={2} variant="h3" align="center">
+            <Typography p={2} variant="h1" align="center">
               Average price:{" "}
               {priceFormatter.format(Number(data.data.averagePrice.toFixed(0)))}
             </Typography>
