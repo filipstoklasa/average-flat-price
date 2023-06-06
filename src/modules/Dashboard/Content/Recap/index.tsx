@@ -33,7 +33,15 @@ const Recap = () => {
           <Typography pt={2} component="h1">
             {data.data.description}
           </Typography>
-          <List sx={{ display: "flex", flexDirection: "row" }}>{items}</List>
+          <List
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              flexWrap: { xs: "wrap", md: "nowrap" },
+            }}
+          >
+            {items}
+          </List>
         </AccordionDetails>
       </Accordion>
       <Accordion TransitionProps={{ unmountOnExit: true }}>
